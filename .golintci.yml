@@ -1,0 +1,29 @@
+linters:
+  enable-all: true
+  disable:
+    - maligned
+    - golint
+    - scopelint
+    - interfacer
+
+linters-settings:
+  depguard:
+    list-type: blacklist
+    include-go-root: true
+    packages:
+      - errors # use "github.com/pkg/errors" instead
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+  govet:
+    check-shadowing: true
+  cyclop:
+    max-complexity: 12
+  tagliatelle:
+    case:
+      use-field-name: true
+      rules:
+        json: snake
+
+run:
+  deadline: 5m
